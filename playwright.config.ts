@@ -1,6 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'node:path';
 
-const baseURL = process.env.BASE_URL ?? 'https://rahulshettyacademy.com';
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+const baseURL = process.env.BASE_URL;
 
 if (!baseURL){
   throw new Error(
