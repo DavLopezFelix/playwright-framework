@@ -1,4 +1,4 @@
-import { test as setup, expect } from '@playwright/test';
+import { test as setup, expect } from '../fixtures/test';
 
 setup('save authentication state', async ({
     loginPage, dashboardPage, page,
@@ -12,8 +12,9 @@ setup('save authentication state', async ({
 
     await loginPage.goto();
     await loginPage.SignIn(email, password);
+
     await expect(dashboardPage.signOutButton).toBeVisible();
 
-    await page.context().storageState({ path: 'tests/auth/auth.json' });
+    await page.context().storageState({ path: 'playwright/.auth/user.json' });
 })
     

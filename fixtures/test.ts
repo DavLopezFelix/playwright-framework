@@ -12,12 +12,8 @@ type AppFixtures = {
 export const test = base.extend<AppFixtures>({
     loginPage: async ({ page }, use) => {
 
-        console.log(`SETUP: ${test.info().title}`);
-
         const loginPage = new LoginPage(page);
         await use(loginPage);
-
-        console.log(`TEARDOWN: ${test.info().title}`);
     },
 
     dashboardPage: async ({ page }, use) => {
@@ -36,6 +32,7 @@ export const test = base.extend<AppFixtures>({
         await loginPage.SignIn(email, password);
         
         await expect(dashboardPage.signOutButton).toBeVisible();
+        
         await use(dashboardPage);
     },
 });
