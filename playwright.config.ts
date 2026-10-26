@@ -54,6 +54,10 @@ export default defineConfig({
         storageState: 'playwright/.auth/user.json',
       },
     },
+    {
+      name: 'api',
+      testMatch: '**/api/*.spec.ts',
+    }
   ],
 
   /* Run your local dev server before starting the tests */
