@@ -10,7 +10,9 @@ test.describe('Login Page', () => {
         await expect(loginPage.signInButton).toBeVisible();
     });
 
-    test('user can login with valid credentials', async ({ loginPage, page }) => {
+    test('user can login with valid credentials', 
+        {tag: '@smoke'},
+        async ({ loginPage, page }) => {
 
         const email = process.env.TEST_EMAIL;
         const password = process.env.TEST_PASSWORD;
